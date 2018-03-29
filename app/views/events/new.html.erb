@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blogs</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1 style="color:red;">Add events</h1>
+  <p></p>
+  <%= form_for([@event,Event.new]) do |form| %>
+    <div class="field">
+      <p> <%=form.label :Title %></p>
+      <p> <%= form.text_field :title %></p>
+    </div>
+    <div class="field">
+      <p> <%=form.label :Location %></p>
+      <p> <%= form.text_field :location %></p>
+    </div>
+    <div class="field">
+      <p> <%=form.label :Date %></p>
+      <p> <%= form.date_select :evtdate %></p>
+    </div>
+
+    <div class="field">
+      <p> <%= form.label :Comment %></p>
+      <p> <%= form.text_area :comment %></p>
+    </div>
+    <%= form.hidden_field :user_id,value:current_user.id %>
+    <div class="field">
+      <%= form.submit 'Save' %>
+    </div>
+  <%end%>
+
+</div>
+</body>
+</html>

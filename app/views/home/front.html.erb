@@ -1,0 +1,13 @@
+<h1>Home#front</h1>
+<p>Find me in app/views/home/front.html.erb</p>
+<nav>
+  <ul class="nav navbar-nav">
+<% if user_signed_in? %>
+  <li>
+    <%= link_to to = button_to('Logout', destroy_user_session_path, :method => :delete)%></li>
+  <% else %>
+<li> <%=link_to "Sign in", new_user_session_path %></li>
+<li> <%=link_to "Sign up", new_user_registration_path %> </li>
+<% end%>
+  </ul>
+</nav>
